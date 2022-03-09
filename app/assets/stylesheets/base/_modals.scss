@@ -1,0 +1,105 @@
+.modal {
+  $base-border-color: #dcdcdc !default;
+  $base-border-radius: 3px !default;
+  $base-background-color: #fff !default;
+  $base-font-size: 1em !default;
+  $base-line-height: 1.5em !default;
+  $action-color: #1F82D4 !default;
+  $dark-gray: #333 !default;
+  $light-gray: #ddd !default;
+  $medium-screen: 40em !default;
+  $large-screen: 53.75em !default;
+  $base-font-color: $dark-gray !default;
+  $modal-padding: 3em;
+  $modal-background: $base-background-color;
+  $modal-close-color: $light-gray;
+  $modal-image-height: 135px;
+  $modal-image-width: $modal-image-height;
+  $modal-trigger-image-width: 300px;
+
+  label img {
+    display: block;
+    max-width: $modal-trigger-image-width;
+  }
+
+  .modal-state {
+    display: none;
+  }
+
+  .modal-trigger {
+    padding: 0.8em 1em;
+  }
+
+
+  .modal-fade-screen { // overlay
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding-top: 5em;
+    text-align: left;
+    transition: opacity 0.25s ease;
+    z-index: 99999999999;
+
+    &.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .modal-inner {
+    background: $modal-background;
+    margin: auto;
+    margin-top: 0;
+    max-height: 90%;
+    overflow: auto;
+    position: relative;
+    transition: opacity 0.25s ease;
+    width: 50%;
+
+    &.modal-postcard-sample {
+      width: 960px;
+    }
+
+    h1 {
+      color: $base-font-color;
+      text-align: left;
+      text-transform: capitalize;
+    }
+
+    p {
+      color: $base-font-color;
+    }
+
+    .modal-intro {
+      margin-bottom: 1em;
+    }
+
+    .modal-content {
+      color: $base-font-color;
+
+    }
+    .confirmation_text {
+      text-transform: uppercase;
+    }
+
+    a.cta {
+      color: $base-background-color;
+      display: inline-block;
+      margin-right: 0.5em;
+      margin-top: 1em;
+
+      &:last-child {
+        padding: 0 2em;
+      }
+    }
+  }
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+// Based on code by Kasper Mikiewicz

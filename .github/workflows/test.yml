@@ -1,0 +1,62 @@
+name: Tests
+on: [pull_request]
+
+env:
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres
+  POSTGRES_DB: mailsnail-api_test
+
+jobs:
+  RSpec:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby-version: ['3.0.3']
+        # Set N number of parallel jobs you want to run tests on.
+        # Use higher number if you have slow tests to split them on more parallel jobs.
+        # Remember to update ci_node_index below to 0..N-1
+        ci_node_total: [8]
+        # set N-1 indexes for parallel jobs
+        # When you run 2 parallel jobs then first job will have index 0, the second job will have index 1 etc
+        ci_node_index: [0, 1, 2, 3, 4, 5, 6, 7]
+    services:
+      postgres:
+        image: postgres
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: ${{ env.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - name: Precompile Assets
+        run: bundle exec rails assets:precompile
+      - name: Set up DB
+        env:
+          DATABASE_URL: postgres://${{ env.POSTGRES_USER }}:${{ env.POSTGRES_PASSWORD }}@localhost:5432/${{ env.POSTGRES_DB }}
+        run: bin/rails db:create && bin/rails db:schema:load
+      - name: Make bin/ci executable
+        run: chmod +x ./bin/ci
+      - name: Run RSpec
+        id: rspec-test
+        env:
+          # Specifies how many jobs you would like to run in parallel,
+          # used for partitioning
+          CI_NODE_TOTAL: ${{ matrix.ci_node_total }}
+          # Use the index from matrix as an environment variable
+          CI_NODE_INDEX: ${{ matrix.ci_node_index }}
+          DATABASE_URL: postgres://${{ env.POSTGRES_USER }}:${{ env.POSTGRES_PASSWORD }}@localhost:5432/${{ env.POSTGRES_DB }}
+        continue-on-error: true
+        run : |
+          ./bin/ci

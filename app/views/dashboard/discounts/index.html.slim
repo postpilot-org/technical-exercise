@@ -1,0 +1,32 @@
+- if @discounts.any?
+  - content_for :page_title, 'Coupons'
+  - content_for :page_actions do
+    = link_to "New Coupon", new_discount_path, class: 'btn'
+
+  .bg-white.bs-1.radius-1.mt-3.b-light.flow-hidden
+    table.tables
+      thead
+        tr
+          th.left Name
+          th.right Available / Total
+          th.right
+      tbody
+        - @discounts.each do |discount|
+          tr
+            td.left.w-8 = discount.name
+            td.right = "#{discount.codes.available.size} / #{discount.codes.size}"
+            td.right: div = link_to 'add codes', new_discount_code_batch_path(discount), class: 'btn outline mini fs-small'
+
+    .bg-smoke.p-3.flex.flex-between
+      .gray = "Showing #{@discounts.count} of #{@discounts.total_count}"
+      - if @discounts.total_count > 10
+        div = paginate @discounts
+
+- else
+  .flex.flex-ycenter.flex-between
+    .w-50
+      h3 You have no single-use coupons.
+      p.my-3 Create and upload your list of unique coupon codes for use in your campaigns. Not required for static codes.
+      = link_to "Create your first Coupon", new_discount_path, class: 'btn'
+    div
+      = render 'application/empty_states/undraw_discount'

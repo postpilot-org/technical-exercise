@@ -1,0 +1,31 @@
+.card-element {
+  min-width: 500px;
+  margin-right: 8px;;
+}
+
+.StripeElement {
+  background-color: $base-background-color;
+  border: $base-border;
+  border-radius: $base-border-radius;
+  box-shadow: $form-box-shadow;
+  box-sizing: border-box;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  padding: 0.6em;
+  transition: border-color $base-duration $base-timing;
+}
+
+
+.StripeElement--focus {
+  border-color: $action-color;
+  box-shadow: $form-box-shadow-focus;
+  outline: none;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}

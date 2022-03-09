@@ -1,0 +1,7 @@
+.bs-1.bg-warn-light.bt-warn.p-3 data-controller="flash"
+  .flex.flex-between
+    .flex.flex-start
+      = render 'application/icons/alert'
+      .ml-2 = message.html_safe
+    .pointer.icon.hover-dark data-action="click->flash#remove"
+      = render 'application/icons/cancel'

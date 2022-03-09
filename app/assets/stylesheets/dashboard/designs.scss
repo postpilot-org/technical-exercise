@@ -1,0 +1,127 @@
+.design-container {
+  .design-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .design-placeholder,
+  .img-display-container {
+    box-shadow: 0 3px 6px 1px rgba(0,0,0,.08), 0 7px 14px 1px rgba(50,50,93,.1);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+    &.small {
+      height: 2.125in;
+      width: 3.125in;
+    }
+
+    &.medium {
+      height: 3.125in;
+      width: 4.625in;
+    }
+
+    &.large {
+      height: 3.125in;
+      width: 5.625in;
+    }
+  }
+
+  .img-controls > a {
+    margin-right: 8px;
+  }
+}
+
+.print-preview-modal {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .preview-sample-data-form {
+    height: 600px;
+    width: 600px;
+    overflow-y: scroll;
+  }
+
+  .preview-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: $small-spacing;
+
+    a {
+      margin: 0 $small-spacing/2;
+    }
+  }
+
+  .print-preview {
+    position: relative;
+    box-shadow: 0 3px 9px rgba(0,0,0,0.25), 0 3px 6px rgba(0,0,0,0.22);
+
+    .safe-zone {
+      position: absolute;
+      top: 0.1875in;
+      left: 0.1875in;
+      right: 0.1875in;
+      bottom: 0.1875in;
+      background: rgba(255, 255, 255, 0.5);
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 3px 9px rgba(0,0,0,0.25), 0 3px 6px rgba(0,0,0,0.22);
+
+      .safe-zone-text {
+        margin: 32px auto;
+        max-width: 475px;
+        font-size: 21px;
+        color: white;
+        text-shadow: 2px 2px black;
+      }
+    }
+
+    .ink-free {
+      position: absolute;
+      background-color: white;
+      width: 4in;
+      height: 2.375in;
+      right: .1in;
+      bottom: .05in;
+      box-shadow: 0 3px 9px rgba(0,0,0,0.25), 0 3px 6px rgba(0,0,0,0.22);
+    }
+
+    &.small {
+      height: 4.25in;
+      width: 6.25in;
+
+      .ink-free {
+        width: 3.2835in;
+        height: 2.375in;
+        right: 0.275in;
+        bottom: 0.25in;
+      }
+    }
+
+    &.medium {
+      height: 6.25in;
+      width: 9.25in;
+    }
+
+    &.large {
+      height: 6.25in;
+      width: 11.25in;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+

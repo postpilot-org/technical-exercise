@@ -1,0 +1,33 @@
+@import "layouts";
+@import "forms";
+@import "campaign_templates";
+@import "credits";
+@import "designs";
+@import "postcards";
+@import "sources";
+@import "stripe_elements";
+
+.combinator-select {
+  width: 75px;
+}
+
+.highlight {
+  color: $action-color;
+}
+
+.dashboard_main-layout {
+  margin-top: 48px;
+}
+
+.shopify-connect-container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: #fff;
+  padding: 32px;
+}
+
+/* Remove Loader icon */
+.icon-cc-logo:before {
+  content: "" !important;
+}

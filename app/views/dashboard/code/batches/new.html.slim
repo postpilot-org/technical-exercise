@@ -1,0 +1,23 @@
+= simple_form_for @discount,
+  url: discount_code_batches_path(@discount),
+  method: :post,
+  html: { data: { \
+    controller: 'upload-codes',
+    upload_codes_license_key_value: ENV.fetch('FLAT_FILE_LICENSE_KEY'),
+    upload_codes_customer_id_value: "123",
+    upload_codes_customer_email_value: "support@postpilot.com",
+    upload_codes_upload_path_value: discount_code_batches_path(@discount),
+    upload_codes_code_duplicates_path_value: discount_code_duplicates_path(@discount) } } do |f|
+
+  .mb-3
+    h2.m-0 Add codes
+
+  .bg-white.bs-1.radius-1.b-light
+    .p-3
+      h4 Upload your unique codes
+      span.hint.mb-1 Choose a csv file of unique codes for use in your campaigns.
+      .mb-2 = link_to 'Download sample CSV file',
+        asset_path('sample_codes.csv'),
+        class: 'btn mini outline',
+        download: 'sample_codes.csv'
+      #choose-file-container.btn data-action='click->upload-codes#openImporter' Choose file

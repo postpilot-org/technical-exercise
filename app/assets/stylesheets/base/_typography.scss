@@ -1,0 +1,126 @@
+body {
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading-font-family;
+  font-size: $base-font-size;
+  margin: 0;
+
+  letter-spacing: 1.25px;
+}
+
+h2 {
+  margin-bottom: $small-spacing*2;
+  font-weight: 900;
+  font-size: 1.75em;
+}
+
+h3 {
+  font-size: 1.333em;
+}
+
+p {
+  margin: 0 0 $small-spacing;
+}
+
+a {
+  color: $dark-gray;
+  text-decoration: none;
+  transition: color $base-duration $base-timing;
+  font-weight: 400;
+
+  i {
+    margin-right: $small-spacing/4;
+  }
+  span {
+    line-height: 1.2px;
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: $action-color;
+  }
+
+  &.active {
+    color: $dark-gray;
+
+    span {
+      border-bottom: 2px solid $dark-gray
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+a.warn:hover {
+  color: $warn-color;
+}
+
+a.mute,
+a.sort_link {
+  color: $medium-gray;
+  &:focus,
+  &:hover {
+    color: $action-color;
+  }
+}
+
+hr {
+  border-bottom: $base-border;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: $base-spacing 0;
+}
+
+img,
+picture {
+  margin: 0;
+  max-width: 100%;
+}
+
+// @for $i from 1 through 6 {
+//   h#{$i} {
+//     font-size: modular-scale(4 - $i);
+//   }
+// }
+
+h4 {
+  font-family: $base-font-family;
+  font-weight: 500;
+  font-size: 1.25em;
+  letter-spacing: inherit;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+i {
+  &.warn:hover {
+    cursor: pointer;
+    color: $warn-color;
+  }
+}
+
+small {
+  font-weight: normal;
+  color: $medium-gray;
+  line-height: 1.15;
+}

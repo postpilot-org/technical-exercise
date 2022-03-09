@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+html
+  head
+    title PostPilot
+    = csrf_meta_tags
+    = action_cable_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload'
+    = javascript_importmap_tags 'application'
+    = render 'favicon_meta'
+    = yield :head
+
+  body.bg-smoke
+    = render 'header'
+
+    .container
+      - if notice
+        = render 'layouts/flash/notice', message: notice
+      - if alert
+        = render 'layouts/flash/alert', message: alert
+
+    .dashboard_main-layout.mb-5 data-controller='hello'
+      .container-md.mx-auto
+        - if content_for? :page_title
+          .flex.flex-between.flex-end.mb-3
+            h2.m-0 = yield(:page_title)
+
+            - if content_for? :page_actions
+              .flex = yield :page_actions
+
+        = yield
+

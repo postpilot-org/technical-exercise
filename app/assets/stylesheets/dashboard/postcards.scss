@@ -1,0 +1,41 @@
+.postcard-list {
+  .postcard-list-item-container {
+    margin-bottom: 16px;
+
+    img {
+      box-shadow: 0 3px 6px 1px rgba(0,0,0,.08), 0 7px 14px 1px rgba(50,50,93,.1);
+      margin-right: 16px;
+    }
+
+    p {
+      font-size: 0.8em;
+    }
+
+    .mode {
+      text-transform: uppercase;
+      font-size: 0.7em;;
+      font-weight: 700;
+      font-style: italic;
+
+      &.highlight {
+        color: $action-color;
+      }
+
+      &.warn {
+        color: $warn-color;
+      }
+    }
+  }
+
+  .postcard-list-item-container:last-child {
+    margin-bottom: 0px;
+  }
+
+  .postcard-list-item-info {
+    width: 300px;
+  }
+
+  .postcard-list-item-secondary-info {
+    font-size: 0.8em;
+  }
+}
