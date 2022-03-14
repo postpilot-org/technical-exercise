@@ -21,6 +21,7 @@ class Code < ApplicationRecord
   belongs_to :discount
 
   validates :value, presence: true
+  scope :by_discount, ->(discount_id) { where(discount_id: discount_id) }
 
   enum status: {
     available: "available",
