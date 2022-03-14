@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :discounts, only: %i[index new create] do
       namespace :code do
         resources :batches, only: %i[new create]
+        get '/batches/download', to: 'batches#download', as: "download"
         resources :duplicates, only: :create
       end
     end

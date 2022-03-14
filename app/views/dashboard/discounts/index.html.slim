@@ -15,6 +15,7 @@
           tr
             td.left.w-8 = discount.name
             td.right = "#{discount.codes.available.size} / #{discount.codes.size}"
+            td.right: div = link_to 'Get Codes',  discount_code_download_path(discount.id), class: 'btn outline mini fs-small'
             td.right: div = link_to 'add codes', new_discount_code_batch_path(discount), class: 'btn outline mini fs-small'
 
     .bg-smoke.p-3.flex.flex-between

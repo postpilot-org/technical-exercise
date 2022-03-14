@@ -26,6 +26,20 @@ module Dashboard
         end
       end
 
+      def download
+        job = DownloadCodesWorker.perform_async(@discount.id)
+        respond_to do |format|
+          format.html {
+            redirect_to discounts_path
+          }
+          format.json do
+            render json: {
+              job: job
+            }, status: ok
+          end
+        end
+      end
+
       private
 
       def set_discount

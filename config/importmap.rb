@@ -13,3 +13,5 @@ pin "@rails/ujs", to: "https://ga.jspm.io/npm:@rails/ujs@7.0.2-2/lib/assets/comp
 pin "@rails/actioncable", to: "https://ga.jspm.io/npm:@rails/actioncable@7.0.2-2/app/assets/javascripts/actioncable.esm.js"
 pin "@rails/activestorage", to: "https://ga.jspm.io/npm:@rails/activestorage@7.0.2-2/app/assets/javascripts/activestorage.esm.js"
 pin_all_from "app/javascript/controllers", under: "controllers"
+pin "@rails/actioncable", to: "actioncable.esm.js"
+pin_all_from "app/javascript/channels", under: "channels"
