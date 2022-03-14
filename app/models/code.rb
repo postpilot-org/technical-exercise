@@ -15,7 +15,7 @@
 #  index_codes_on_status             (status)
 #  index_codes_on_value  (value) UNIQUE
 #
-require 'csv'
+require "csv"
 class Code < ApplicationRecord
   SAMPLE_VALUE = "Feb-HnQv2".freeze
   belongs_to :discount
@@ -30,7 +30,7 @@ class Code < ApplicationRecord
 
   def self.to_csv(scope)
     CSV.generate do |csv|
-      csv << ['code']
+      csv << ["code"]
       scope.all.each do |code|
         csv << [code.value]
       end
