@@ -3,7 +3,7 @@ class DownloadCodesWorker
 
     def perform(discount_id)
       #Simulate slowdown a large creation of csv
-      sleep(10)
+      sleep(3)
       codes = Code.by_discount(discount_id)
       ActionCable.server.broadcast "export_channel", {
           filename: 'data.csv',

@@ -1,0 +1,22 @@
+- if @codes.any?
+  - content_for :page_title, "Coupon Name: #{@discount.name}"
+
+
+  .bg-white.bs-1.radius-1.mt-3.b-light.flow-hidden
+    table.tables
+      thead
+        tr
+          th.left Code 
+          th.right Status
+          th.right Date Created
+      tbody
+        - @codes.each do |code|
+          tr
+            td.left.w-8 = code.value
+            td.right = code.status
+            td.iright = code.created_at.strftime('%m/%d/%Y')
+
+    .bg-smoke.p-3.flex.flex-between
+      .gray = "Showing #{@codes.count} of #{@codes.total_count}"
+      - if @codes.total_count > 10
+        div = paginate @codes

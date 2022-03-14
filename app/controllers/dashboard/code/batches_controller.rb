@@ -2,8 +2,12 @@ module Dashboard
   module Code
     class BatchesController < ApplicationController
       PER_GROUP = 5_000
-
+      RECORDS_PER_PAGE = 10
       before_action :set_discount
+
+      def index
+        @codes = @discount.codes.page(params[:page]).per(RECORDS_PER_PAGE)
+      end
 
       def new
       end
