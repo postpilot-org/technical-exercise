@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 ruby "3.0.3"
 
+gem "activerecord-import"
 gem "aws-sdk-s3", require: false
 gem "bootsnap", require: false
 gem "dartsass-rails", "~> 0.3.0"
@@ -14,7 +15,7 @@ gem "lograge"
 gem "money-rails", "~>1"
 gem "pg"
 gem "postmark-rails"
-gem "puma", "~> 4.3.5"
+gem "puma", "~> 4.3.12"
 gem "rails", "~> 7.0.2.2"
 gem "sidekiq", "< 7"
 gem "simple_form", "5.0.2"
@@ -31,6 +32,7 @@ group :development, :test do
   gem "dotenv-rails", "2.7.6" # env variables for dev and test
   gem "factory_bot_rails"
   gem "foreman"
+  gem "pry", "~> 0.14.1"
   gem "pry-rails"
   gem "rspec-rails"
   gem "standard"

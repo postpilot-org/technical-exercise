@@ -22,52 +22,6 @@ export default class extends Controller {
       this.config,
       this.customerObject
     )
-
-    this.importer.registerFieldHook('code', async rows => {
-      return this.validateCodesUniqueness(rows).then((duplicates) => duplicates)
-    })
-  }
-
-  validateCodesUniqueness = (rows) => {
-    const url = this.codeDuplicatesPathValue
-    const data = { codes: rows.map(row => row[0]) }
-
-    return new Promise((resolve, _) => {
-      Rails.ajax({
-        type: 'POST',
-        dataType: 'json',
-        url: url,
-        success: (response) => {
-          let duplicates = []
-
-          rows.forEach((row) => {
-            if (response.includes(row[0])) {
-              duplicates.push([
-                {
-                  info: [
-                    {
-                      message: 'Coupon code with this value already exists',
-                      level: 'error'
-                    }
-                  ]
-                },
-                row[1]
-              ]);
-            }
-          })
-
-          resolve(duplicates)
-        },
-        beforeSend(xhr, options) {
-          xhr.setRequestHeader('Accept', 'application/json; charset=UTF-8')
-          xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8')
-
-          options.data = JSON.stringify(data)
-
-          return true
-        }
-      })
-    })
   }
 
   openImporter = () => {
