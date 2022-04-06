@@ -24,6 +24,7 @@ gem "stimulus-rails"
 gem "strong_migrations"
 gem "turbo-rails"
 gem "redis", "~> 4.0"
+gem 'activerecord-import'
 
 group :development, :test do
   gem "annotate"
