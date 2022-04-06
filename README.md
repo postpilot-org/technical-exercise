@@ -1,6 +1,6 @@
 # About
 
-This is a sample app we made to allow technical exercises to hapen the best way possible.
+This is a sample app we made to allow technical exercises to happen the best way possible.
 
 All the resources needed to run and test the app will be provided by GitHub Codespaces.
 
