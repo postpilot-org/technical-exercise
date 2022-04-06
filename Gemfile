@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 ruby "3.0.3"
 
+gem "activerecord-import"
 gem "aws-sdk-s3", require: false
 gem "bootsnap", require: false
 gem "dartsass-rails", "~> 0.3.0"
@@ -24,7 +25,6 @@ gem "stimulus-rails"
 gem "strong_migrations"
 gem "turbo-rails"
 gem "redis", "~> 4.0"
-gem "activerecord-import"
 
 group :development, :test do
   gem "annotate"
@@ -32,10 +32,10 @@ group :development, :test do
   gem "dotenv-rails", "2.7.6" # env variables for dev and test
   gem "factory_bot_rails"
   gem "foreman"
+  gem "pry", "~> 0.14.1"
   gem "pry-rails"
   gem "rspec-rails"
   gem "standard"
-  gem "pry", "~> 0.14.1"
 end
 
 group :development do
