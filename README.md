@@ -21,5 +21,4 @@ VS Code will improve the experience while the app runs at GitHub Codespaces.
 ## How to submit your test
 
 - Do not push a branch to remote since you're branch can be seen by other candidates.
-- When you are finished create a [git patch](https://www.git-tower.com/learn/git/faq/create-and-apply-patch)
 - Once you are finished please schedule a time on my calendar for us to discuss the solution - https://calendly.com/postpilot-matt/30min and send me an email with the patch attached.
