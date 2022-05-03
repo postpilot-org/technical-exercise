@@ -1,0 +1,38 @@
++.flex.flex-between.flex-end.mb-3
+    h2.m-0 Coupon Details
+
+.bg-white.bs-1.radius-1.mt-3.b-light.flow-hidden
+    table.tables
+      thead
+        tr
+          th.left Coupon Name
+      tbody
+        tr
+          td.left.w-8 = @discount.name
+
+- if @codes.any?
+    .flex.flex-between.flex-end.mb-3.mt-10
+        h2.m-0 Codes
+
+    .bg-white.bs-1.radius-1.mt-3.b-light.flow-hidden
+        table.tables
+            thead
+                tr
+                th.left Code
+                th.right Status
+                th.right Date created
+            tbody
+                - @codes.each do |code|
+                    tr
+                        td.left.w-8 = code.value
+                        td.right = code.status.humanize
+                        td.right = I18n.l(code.created_at, format: "%m/%d/%Y")
+
+    .bg-smoke.p-3.flex.flex-between
+        .gray = "Showing #{@codes.count} of #{@codes.total_count}"
+        - if @codes.total_count > @per_page
+            div = paginate @codes
+
+- else
+    .flex.flex-between.flex-end.mb-3
+        h2.m-0 No Codes yet...

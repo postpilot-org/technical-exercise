@@ -2,8 +2,15 @@ module Dashboard
   class DiscountsController < ApplicationController
     RECORDS_PER_PAGE = 10
 
+    before_action :find_discount, only: [:show, :edit]
+
     def index
       @discounts = Discount.all.page(params[:page]).per(RECORDS_PER_PAGE)
+    end
+
+    def show
+      @per_page = RECORDS_PER_PAGE
+      @codes = @discount.codes.page(params[:page]).per(RECORDS_PER_PAGE)
     end
 
     def new
@@ -11,7 +18,6 @@ module Dashboard
     end
 
     def edit
-      @discount = Discount.find(params[:id])
     end
 
     def create
@@ -29,6 +35,10 @@ module Dashboard
 
     def discount_params
       params.require(:discount).permit(:name)
+    end
+
+    def find_discount
+      @discount = Discount.find(params[:id])
     end
   end
 end

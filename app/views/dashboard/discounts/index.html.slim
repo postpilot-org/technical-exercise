@@ -13,7 +13,7 @@
       tbody
         - @discounts.each do |discount|
           tr
-            td.left.w-8 = discount.name
+            td.left.w-8 = link_to discount.name, discount_path(discount)
             td.right = "#{discount.codes.available.size} / #{discount.codes.size}"
             td.right: div = link_to 'add codes', new_discount_code_batch_path(discount), class: 'btn outline mini fs-small'
 

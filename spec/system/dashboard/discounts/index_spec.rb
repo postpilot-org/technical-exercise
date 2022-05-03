@@ -18,4 +18,18 @@ RSpec.describe "Viewing disounts", type: :system do
 
     expect(page).to have_content "#{discount.codes.available.count} / #{discount.codes.count}"
   end
+
+  it "show coupom details with codes" do
+    discount = create(:discount)
+
+    create(:code, discount: discount, status: "available", value: "abc123")
+    create(:code, discount: discount, status: "available", value: "def456")
+
+    visit discount_path(discount)
+
+    expect(page).to have_content "Coupon Details"
+
+    expect(page).to have_content "abc123"
+    expect(page).to have_content "def456"
+  end
 end
