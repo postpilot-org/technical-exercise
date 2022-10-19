@@ -2,7 +2,7 @@ Rails.application.configure do
   require "active_support/core_ext/integer/time"
 
   # config.hosts << "postpilot.test"
-  config.hosts << /^.+-postpilot-org-postpilot-.*-3000\.githubpreview\.dev$/
+  config.hosts << /^.+-postpilot-org-technical-exercise-.*-3000\.githubpreview\.dev$/
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Do not force SSL on development environment
