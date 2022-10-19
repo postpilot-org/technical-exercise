@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.0.3"
+ruby "3.0.4"
 
 gem "activerecord-import"
 gem "aws-sdk-s3", require: false
