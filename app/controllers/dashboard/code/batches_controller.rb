@@ -26,6 +26,15 @@ module Dashboard
         end
       end
 
+      def download
+        respond_to do |format|
+          format.html do
+            DownloadCodesWorker.perform_async(@discount.id)            
+            redirect_to discounts_path, notice: "Your coupons codes for #{@discount.name} are being generated into a CSV!"
+          end
+        end
+      end
+
       private
 
       def set_discount

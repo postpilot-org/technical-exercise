@@ -3,6 +3,7 @@ Rails.application.configure do
 
   # config.hosts << "postpilot.test"
   config.hosts << /^.+-postpilot-org-technical-exercise-.*-3000\.githubpreview\.dev$/
+  config.hosts << "www.lvh.me"
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Do not force SSL on development environment
@@ -85,5 +86,5 @@ Rails.application.configure do
   # config.action_view.annotate_rendered_view_with_filenames = true
 
   # Uncomment if you wish to allow Action Cable access from any origin.
-  # config.action_cable.disable_request_forgery_protection = true
+  config.action_cable.disable_request_forgery_protection = true
 end
