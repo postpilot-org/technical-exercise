@@ -8,7 +8,7 @@ RSpec.describe "Viewing disounts", type: :system do
     expect(page).not_to have_button("Create your first Coupon")
   end
 
-  it "shows the number of Available/Total coupon codes" do
+  it "shows the number of Available/Total coupon codes and has download codes button" do
     discount = create(:discount)
 
     create(:code, discount: discount, status: "used")
@@ -17,5 +17,6 @@ RSpec.describe "Viewing disounts", type: :system do
     visit discounts_path
 
     expect(page).to have_content "#{discount.codes.available.count} / #{discount.codes.count}"
+    expect(page).to have_content "download codes"
   end
 end

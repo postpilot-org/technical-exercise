@@ -25,4 +25,6 @@ class Code < ApplicationRecord
     available: "available",
     used: "used"
   }
+
+  scope :by_discount_id, ->(discount_id) { where(discount_id: discount_id) }
 end
