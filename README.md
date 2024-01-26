@@ -20,5 +20,8 @@ VS Code will improve the experience while the app runs at GitHub Codespaces.
 
 ## How to submit your test
 
-- Do not push a branch to remote since you're branch can be seen by other candidates.
-- Once you are finished please schedule a time on my calendar for us to discuss the solution - https://calendly.com/postpilot-matt/30min and send me an email with the patch attached.
+- Do not push a branch to remote since other candidates can see your branch.
+- Once you are finished:
+  1. create a private repo and give access to my user: @renatonitta
+  2. please schedule a time on my calendar for us to discuss the solution - https://meetings.hubspot.com/renato-nitta/45-min
+  3. feel free to drop a comment or question via email (optional)
