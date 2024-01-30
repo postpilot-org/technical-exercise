@@ -23,5 +23,4 @@ VS Code will improve the experience while the app runs at GitHub Codespaces.
 - Do not push a branch to remote since other candidates can see your branch.
 - Once you are finished:
   1. create a private repo and share access with the users: @renatonitta, @wilsondealmeida, and @dhawt
-  2. please schedule a time on my calendar for us to discuss the solution - https://meetings.hubspot.com/renato-nitta/45-min
-  3. feel free to drop a comment or question via email (optional)
+  2. send us a short update as mentioned in the "Engineering Take-Home (Step 4)" document
