@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.0.4"
+ruby "3.0.6"
 
 gem "activerecord-import"
 gem "aws-sdk-s3", require: false
@@ -15,8 +15,8 @@ gem "lograge"
 gem "money-rails", "~>1"
 gem "pg"
 gem "postmark-rails"
-gem "puma", "~> 4.3.12"
-gem "rails", "~> 7.0.2.2"
+gem "puma", "~> 5.6.7"
+gem "rails", "~> 7.0.7.1"
 gem "sidekiq", "< 7"
 gem "simple_form", "5.0.2"
 gem "slim"
