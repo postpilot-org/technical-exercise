@@ -383,6 +383,7 @@ GEM
 PLATFORMS
   arm64-darwin-20
   arm64-darwin-21
+  arm64-darwin-23
   x86_64-darwin-19
   x86_64-darwin-20
   x86_64-linux
@@ -430,9 +431,6 @@ DEPENDENCIES
   vcr
   webdrivers
   webmock
-
-RUBY VERSION
-   ruby 3.0.3p157
 
 BUNDLED WITH
    2.3.10
