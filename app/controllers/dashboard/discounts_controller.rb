@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Dashboard
   class DiscountsController < ApplicationController
     RECORDS_PER_PAGE = 10
@@ -19,7 +21,7 @@ module Dashboard
 
       if @discount.save
         redirect_to new_discount_code_batch_path(@discount),
-          notice: "You are successfully created coupon. Now add your codes"
+                    notice: 'You are successfully created coupon. Now add your codes'
       else
         render :new
       end

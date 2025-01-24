@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: discounts
@@ -13,5 +15,5 @@ class Discount < ApplicationRecord
 
   validates :name, uniqueness: true, presence: true
 
-  enum kind: {uploaded: "uploaded"}
+  enum kind: { uploaded: 'uploaded' }
 end

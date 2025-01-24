@@ -1,25 +1,27 @@
+# frozen_string_literal: true
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-ENV["RAILS_ENV"] ||= "test"
-require "spec_helper"
-require File.expand_path("../config/environment", __dir__)
-require "rspec/rails"
+ENV['RAILS_ENV'] ||= 'test'
+require 'spec_helper'
+require File.expand_path('../config/environment', __dir__)
+require 'rspec/rails'
 
 # Add additional requires below this line. Rails is not loaded until this point!
-require "capybara/rails"
-require "webmock/rspec"
-require "sidekiq/testing"
-require "pry"
-require "money-rails/test_helpers"
+require 'capybara/rails'
+require 'webmock/rspec'
+require 'sidekiq/testing'
+require 'pry'
+require 'money-rails/test_helpers'
 
 # silence logs when running specs: https://github.com/rspec/rspec-rails/issues/1897
-Capybara.server = :puma, {Silent: true}
+Capybara.server = :puma, { Silent: true }
 Capybara.register_driver :chrome_headless do |app|
   options = ::Selenium::WebDriver::Chrome::Options.new
 
-  options.add_argument("--headless")
-  options.add_argument("--no-sandbox")
-  options.add_argument("--disable-dev-shm-usage")
-  options.add_argument("--window-size=1400,1400")
+  options.add_argument('--headless')
+  options.add_argument('--no-sandbox')
+  options.add_argument('--disable-dev-shm-usage')
+  options.add_argument('--window-size=1400,1400')
 
   Capybara::Selenium::Driver.new(
     app,
@@ -31,7 +33,7 @@ end
 # Setting up WEBDRIVER gem with browser version apis  for webmock and VCR:
 # https://github.com/titusfortner/webdrivers/wiki/Using-with-VCR-or-WebMock
 
-require "uri"
+require 'uri'
 driver_hosts = Webdrivers::Common.subclasses.map { |driver| URI(driver.base_url).host }
 driver_urls = Webdrivers::Common.subclasses.map(&:base_url)
 
@@ -40,12 +42,12 @@ WebMock.disable_net_connect!(allow_localhost: true, allow: driver_urls)
 
 VCR.configure do |config|
   config.hook_into :webmock
-  config.cassette_library_dir = "spec/vcr_cassettes"
+  config.cassette_library_dir = 'spec/vcr_cassettes'
   config.configure_rspec_metadata!
   # config.filter_sensitive_data('<api_key>') { ENV['STRIPE_SECRET_KEY'] }
   config.allow_http_connections_when_no_cassette = false
-  config.ignore_hosts("localhost", "127.0.0.1", "0.0.0.0", *driver_hosts)
-  config.debug_logger = File.open(Rails.root.join("log", "vcr.log"), "w")
+  config.ignore_hosts('localhost', '127.0.0.1', '0.0.0.0', *driver_hosts)
+  config.debug_logger = File.open(Rails.root.join('log', 'vcr.log'), 'w')
 end
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -61,7 +63,7 @@ end
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.

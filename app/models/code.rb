@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: codes
@@ -16,13 +18,13 @@
 #  index_codes_on_value  (value) UNIQUE
 #
 class Code < ApplicationRecord
-  SAMPLE_VALUE = "Feb-HnQv2".freeze
+  SAMPLE_VALUE = 'Feb-HnQv2'
   belongs_to :discount
 
   validates :value, presence: true
 
   enum status: {
-    available: "available",
-    used: "used"
+    available: 'available',
+    used: 'used'
   }
 end

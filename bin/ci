@@ -1,2 +1,4 @@
 #!/usr/bin/env ruby
-exec "bundle exec rspec"
+# frozen_string_literal: true
+
+exec 'bundle exec rspec'

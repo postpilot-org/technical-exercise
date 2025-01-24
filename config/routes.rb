@@ -1,9 +1,11 @@
-require "sidekiq/web"
+# frozen_string_literal: true
+
+require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  root to: redirect("/discounts")
+  root to: redirect('/discounts')
 
-  scope module: "dashboard" do
+  scope module: 'dashboard' do
     resources :discounts, only: %i[index new create] do
       namespace :code do
         resources :batches, only: %i[new create]
@@ -12,5 +14,5 @@ Rails.application.routes.draw do
     end
   end
 
-  mount Sidekiq::Web => "/sidekiq" # Sidekiq portal
+  mount Sidekiq::Web => '/sidekiq' # Sidekiq portal
 end

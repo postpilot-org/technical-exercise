@@ -1,4 +1,6 @@
-require "active_support/core_ext/integer/time"
+# frozen_string_literal: true
+
+require 'active_support/core_ext/integer/time'
 
 # The test environment is used exclusively to run your application's
 # test suite. You never need to work with it otherwise. Remember that
@@ -15,12 +17,12 @@ Rails.application.configure do
   # Eager loading loads your whole application. When running a single test locally,
   # this probably isn't necessary. It's a good idea to do in a continuous integration
   # system, or in some way before deploying your code.
-  config.eager_load = ENV["CI"].present?
+  config.eager_load = ENV['CI'].present?
 
   # Configure public file server for tests with Cache-Control for performance.
   config.public_file_server.enabled = true
   config.public_file_server.headers = {
-    "Cache-Control" => "public, max-age=#{1.hour.to_i}"
+    'Cache-Control' => "public, max-age=#{1.hour.to_i}"
   }
 
   # Show full error reports and disable caching.
@@ -45,8 +47,8 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :test
 
   config.action_mailer.default_url_options = {
-    host: ENV.fetch("APP_HOST"),
-    protocol: ENV.fetch("APP_PROTOCOL")
+    host: ENV.fetch('APP_HOST'),
+    protocol: ENV.fetch('APP_PROTOCOL')
   }
 
   # Print deprecation notices to the stderr.
