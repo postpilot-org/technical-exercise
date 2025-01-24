@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       namespace :code do
         resources :batches, only: %i[new create]
         resources :duplicates, only: :create
+        resources :exports, only: %i[create show]
       end
     end
   end

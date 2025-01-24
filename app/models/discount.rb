@@ -12,6 +12,7 @@
 #
 class Discount < ApplicationRecord
   has_many :codes
+  has_many :discount_codes_exports
 
   validates :name, uniqueness: true, presence: true
 

@@ -15,7 +15,9 @@
           tr
             td.left.w-8 = discount.name
             td.right = "#{discount.codes.available.size} / #{discount.codes.size}"
-            td.right: div = link_to 'add codes', new_discount_code_batch_path(discount), class: 'btn outline mini fs-small'
+            td.right.flex
+              div.mr-1 = link_to 'add codes', new_discount_code_batch_path(discount), class: 'btn outline mini fs-small'
+              div = link_to 'export codes', discount_code_exports_path(discount), class: 'btn outline mini fs-small', method: :post, target: :_blank
 
     .bg-smoke.p-3.flex.flex-between
       .gray = "Showing #{@discounts.count} of #{@discounts.total_count}"

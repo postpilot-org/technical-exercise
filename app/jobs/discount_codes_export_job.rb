@@ -4,9 +4,9 @@ class DiscountCodesExportJob < ApplicationJob
   def perform(export)
     csv = create_csv export.discount
     io = create_tmp_file(csv)
-    export.csv.attach(io:, filename: 'codes.csv')
+    export.csv.attach(io: io, filename: 'codes.csv')
   end
-  
+
   private
 
   def create_tmp_file(csv)

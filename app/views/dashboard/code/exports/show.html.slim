@@ -1,0 +1,11 @@
+h1.mb-4= @discount.name
+
+.flex.flex-ycenter.flex-between
+
+  - if @export.csv.present?
+    = link_to 'Download Codes CSV', url_for(@export.csv), class: 'btn download-csv'
+  - else
+    div Your export is being created in the background. This page will refresh every 5 seconds until the export is ready for download.
+
+    javascript:
+      setTimeout(function() { location.reload() }, 5000);
