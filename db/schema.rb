@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_220_217_204_149) do
+ActiveRecord::Schema[7.0].define(version: 20_250_124_054_313) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -56,10 +56,19 @@ ActiveRecord::Schema[7.0].define(version: 20_220_217_204_149) do
     t.index ['value'], name: 'index_codes_on_value', unique: true
   end
 
+  create_table 'discount_codes_exports', force: :cascade do |t|
+    t.bigint 'discount_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['discount_id'], name: 'index_discount_codes_exports_on_discount_id'
+  end
+
   create_table 'discounts', force: :cascade do |t|
     t.string 'kind', default: 'uploaded'
     t.string 'name'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
   end
+
+  add_foreign_key 'discount_codes_exports', 'discounts'
 end
