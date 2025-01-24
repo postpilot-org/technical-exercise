@@ -46,7 +46,8 @@ VCR.configure do |config|
   config.configure_rspec_metadata!
   # config.filter_sensitive_data('<api_key>') { ENV['STRIPE_SECRET_KEY'] }
   config.allow_http_connections_when_no_cassette = false
-  config.ignore_hosts('localhost', '127.0.0.1', '0.0.0.0', *driver_hosts)
+  config.ignore_hosts('localhost', '127.0.0.1', '0.0.0.0', 'googlechromelabs.github.io', 'storage.googleapis.com',
+                      *driver_hosts)
   config.debug_logger = File.open(Rails.root.join('log', 'vcr.log'), 'w')
 end
 
@@ -101,10 +102,6 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.before(:each, type: :system) do
-    driven_by :rack_test
-  end
-
-  config.before(:each, type: :system, js: true) do
     driven_by :chrome_headless
     # page.driver.browser.url_whitelist = ['127.0.0.1']
   end
