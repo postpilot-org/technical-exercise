@@ -3,6 +3,7 @@ Rails.application.configure do
 
   # config.hosts << "postpilot.test"
   config.hosts << /^.+-postpilot-org-technical-exercise-.*-3000\.githubpreview\.dev$/
+  config.hosts << /.*\.app\.github\.dev/
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Do not force SSL on development environment
