@@ -18,6 +18,7 @@ You can also run it locally if you prefer, the GitHub Codespaces is here to help
 - Here's a quick recording on how that works...
 ![4PejIoe4p8](https://user-images.githubusercontent.com/6395112/157670995-0340ce21-2ec1-4796-9df3-601f073004a5.gif)
 - Either on browser or VSCode, you will end up in a shell console, from there you can run all the Rails commands you may already be used to.
+- When setting up a brand new Codespace ensure to create a `tmp` folder in the main directory. It's in the `.gitignore` and won't cause a change. 
 - Probably because of the containers, you may need to run commands with `sudo`:
   - `sudo bundle install`
   - `sudo rails db:setup`

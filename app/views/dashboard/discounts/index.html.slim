@@ -15,7 +15,18 @@
           tr
             td.left.w-8 = discount.name
             td.right = "#{discount.codes.available.size} / #{discount.codes.size}"
-            td.right: div = link_to 'add codes', new_discount_code_batch_path(discount), class: 'btn outline mini fs-small'
+            td.right: div.flex.gap-2
+              = link_to 'add codes', new_discount_code_batch_path(discount), class: 'btn outline mini fs-small'
+              = button_to 'download codes', 
+                export_codes_discount_path(discount), 
+                method: :post, 
+                class: 'btn outline mini fs-small',
+                data: { controller: 'export-button', export_button_toast_outlet: '#toast-container' },
+                "data-action": 'click->export-button#click'
+          tr
+            td[colspan="3"]
+              = turbo_stream_from "discount_#{discount.id}_exports"
+              turbo-frame[id="export_status_#{discount.id}"]
 
     .bg-smoke.p-3.flex.flex-between
       .gray = "Showing #{@discounts.count} of #{@discounts.total_count}"

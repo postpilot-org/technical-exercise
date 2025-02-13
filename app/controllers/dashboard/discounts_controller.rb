@@ -25,6 +25,12 @@ module Dashboard
       end
     end
 
+    def export_codes
+      @discount = Discount.find(params[:id])
+      ExportCodesWorker.perform_async(@discount.id)
+      redirect_to discounts_path, notice: "Export started. You'll be notified when ready."
+    end
+
     private
 
     def discount_params
