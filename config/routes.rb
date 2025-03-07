@@ -9,6 +9,11 @@ Rails.application.routes.draw do
         resources :batches, only: %i[new create]
         resources :duplicates, only: :create
       end
+
+      member do
+        post :generate_csv
+        delete :destroy_csv
+      end
     end
   end
 

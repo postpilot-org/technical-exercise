@@ -13,9 +13,13 @@
       tbody
         - @discounts.each do |discount|
           tr
-            td.left.w-8 = discount.name
+            td.left.w-7 = discount.name
             td.right = "#{discount.codes.available.size} / #{discount.codes.size}"
-            td.right: div = link_to 'add codes', new_discount_code_batch_path(discount), class: 'btn outline mini fs-small'
+            td.right[data-controller="discounts" data-discounts-id-value="#{discount.id}"]
+              = link_to 'add codes', new_discount_code_batch_path(discount), class: 'btn outline mini fs-small mr-1'
+              = link_to discount_link_title(discount), discount_link_url(discount), class: 'btn outline mini fs-small', method: :post, data: { 'discounts-target': 'link' }
+              - if discount.exported_csv.attached?
+                = link_to 'x', destroy_csv_discount_path(discount), class: 'hidden btn outline mini fs-small ml-1', method: :delete, data: { 'discounts-target': 'delete' }
 
     .bg-smoke.p-3.flex.flex-between
       .gray = "Showing #{@discounts.count} of #{@discounts.total_count}"
