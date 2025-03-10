@@ -6,7 +6,7 @@ class GenerateCsvWorker
     discount.update(csv_export_started_at: Time.zone.now, csv_export_finished_at: nil)
     discount.exported_csv.attach(io: StringIO.new(csv), filename: filename)
     discount.update(csv_export_finished_at: Time.zone.now)
-    Turbo::StreamsChannel.broadcast_replace_to(discount,
+    Turbo::StreamsChannel.broadcast_replace_to('discounts',
       partial: 'partials/discount',
       locals: { discount: discount },
       target: "discount_#{discount.id}"
