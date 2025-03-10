@@ -1,0 +1,11 @@
+div
+  - if discount.exported_csv.attached?
+    = link_to 'add codes', new_discount_code_batch_path(discount), class: 'btn outline mini fs-small mr-1'
+    = link_to discount_link_title(discount), discount_link_url(discount), class: 'btn outline mini fs-small', method: :post, data: { 'discounts-target': 'link' }
+    = link_to 'x', destroy_csv_discount_path(discount), class: 'hidden btn outline mini fs-small ml-1', method: :delete, data: { 'discounts-target': 'delete' }
+  - elsif discount.csv_export_started_at.present?
+    = link_to 'add codes', new_discount_code_batch_path(discount), class: 'btn outline mini fs-small mr-1'
+    span = 'Generating...'
+  - else
+    = link_to 'add codes', new_discount_code_batch_path(discount), class: 'btn outline mini fs-small mr-1'
+    = link_to discount_link_title(discount), discount_link_url(discount), class: 'btn outline mini fs-small', method: :post, data: { 'discounts-target': 'link' }
