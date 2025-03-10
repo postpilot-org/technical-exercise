@@ -6,7 +6,11 @@ class GenerateCsvWorker
     discount.update(csv_export_started_at: Time.zone.now, csv_export_finished_at: nil)
     discount.exported_csv.attach(io: StringIO.new(csv), filename: filename)
     discount.update(csv_export_finished_at: Time.zone.now)
-    ActionCable.server.broadcast("discounts:#{discount.id}", { label: 'Download CSV', href: file_url })
+    Turbo::StreamsChannel.broadcast_replace_to(discount,
+      partial: 'partials/discount',
+      locals: { discount: discount },
+      target: "discount_#{discount.id}"
+    )
   end
 
   private
