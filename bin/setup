@@ -35,5 +35,5 @@ FileUtils.chdir APP_ROOT do
   system! "bin/rails restart"
 
   puts "\n== creating tmp/pids directory  =="
-  system! "mkdir tmp/pids"
+  system! "mkdir -p tmp/pids"
 end
