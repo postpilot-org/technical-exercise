@@ -32,7 +32,7 @@ FileUtils.chdir APP_ROOT do
   system! "bin/rails restart"
 
   puts "\n== Seeding the database =="
-  system! "bin/rails restart"
+  system! "bin/rails db:seed"
 
   puts "\n== creating tmp/pids directory  =="
   system! "mkdir -p tmp/pids"
