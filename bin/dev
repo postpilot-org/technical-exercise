@@ -6,4 +6,7 @@ then
   gem install foreman
 fi
 
+# Ensure tmp/pids directory exists for Puma
+mkdir -p tmp/pids
+
 foreman start -f Procfile.dev
