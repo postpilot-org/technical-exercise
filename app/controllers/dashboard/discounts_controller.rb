@@ -25,6 +25,12 @@ module Dashboard
       end
     end
 
+    def export_codes
+      @discount = Discount.find(params[:id])
+      @codes = @discount.codes
+      redirect_to discounts_path, notice: "Your export is being prepared. You’ll receive an email when it’s ready."
+    end
+
     private
 
     def discount_params
