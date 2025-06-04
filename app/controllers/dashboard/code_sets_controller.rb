@@ -4,10 +4,7 @@ module Dashboard
     before_action :set_discount
 
     def create
-      if @discount.code_set.blank?
-        @discount.create_code_set
-      end
-
+      @discount.create_code_set if @discount.code_set.blank?
       GenerateCodesWorker.perform_async(@discount.id)
 
       respond_to do |format|
