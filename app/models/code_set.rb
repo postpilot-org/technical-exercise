@@ -26,14 +26,14 @@ class CodeSet < ApplicationRecord
     file.attach(io: StringIO.new(to_csv), filename: filename, content_type: 'text/csv')
   end
 
-  # Generates a CSV string with all of the discount's codes in the same format as
-  # the upload CSV.
+  # Generates a CSV string with all of the discount's codes, including their
+  # usage status.
   def to_csv
     CSV.generate(headers: true) do |csv|
-      csv << %w[code]
+      csv << %w[code status]
 
       discount_codes.find_each do |code|
-        csv << [code.value]
+        csv << [code.value, code.status]
       end
     end
   end

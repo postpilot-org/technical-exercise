@@ -20,9 +20,9 @@ RSpec.describe CodeSet, type: :model do
 
     it 'generates a CSV representation as string' do
       expected = CSV.generate(headers: true) do |csv|
-        csv << %w[code]
-        csv << [available.value]
-        csv << [used.value]
+        csv << %w[code status]
+        csv << [available.value, available.status]
+        csv << [used.value, used.status]
       end
 
       expect(subject.to_csv).to eq expected
