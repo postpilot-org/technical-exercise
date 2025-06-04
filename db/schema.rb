@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_17_204149) do
+ActiveRecord::Schema[7.0].define(version: 2025_06_04_195527) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_17_204149) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "code_sets", force: :cascade do |t|
+    t.bigint "discount_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["discount_id"], name: "index_code_sets_on_discount_id"
+  end
+
   create_table "codes", force: :cascade do |t|
     t.bigint "discount_id"
     t.string "value", null: false
@@ -59,4 +66,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_17_204149) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
 end
