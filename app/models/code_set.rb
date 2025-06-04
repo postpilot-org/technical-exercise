@@ -27,7 +27,7 @@ class CodeSet < ApplicationRecord
   end
 
   # Generates a CSV string with all of the discount's codes, including their
-  # usage status.
+  # usage status. Uses `find_each` to batch SELECTs for performance.
   def to_csv
     CSV.generate(headers: true) do |csv|
       csv << %w[code status]
