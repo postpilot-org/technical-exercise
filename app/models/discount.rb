@@ -10,8 +10,13 @@
 #
 class Discount < ApplicationRecord
   has_many :codes
+  has_one :code_set
 
   validates :name, uniqueness: true, presence: true
 
   enum kind: {uploaded: "uploaded"}
+
+  def export_file
+    code_set&.file
+  end
 end

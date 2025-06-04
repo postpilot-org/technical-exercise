@@ -18,4 +18,15 @@ RSpec.describe "Viewing disounts", type: :system do
 
     expect(page).to have_content "#{discount.codes.available.count} / #{discount.codes.count}"
   end
+
+  it "allows for exporting coupon codes" do
+    discount = create(:discount)
+
+    create(:code, discount: discount, status: "used")
+    create(:code, discount: discount, status: "available")
+
+    visit discounts_path
+
+    expect(page).to have_link("download codes")
+  end
 end

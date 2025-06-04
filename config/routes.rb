@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   scope module: "dashboard" do
     resources :discounts, only: %i[index new create] do
+      resource :code_set, only: %i[create]
       namespace :code do
         resources :batches, only: %i[new create]
         resources :duplicates, only: :create
