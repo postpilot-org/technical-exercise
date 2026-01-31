@@ -4,14 +4,9 @@ This is a sample app we made to allow technical exercises to happen the best way
 
 All the resources needed to run and test the app can be provided by GitHub Codespaces.
 
-This means you don't need to run the project locally nor configure your dev environment for it.
+Follow the PDF instructions you recieved to complete the assessed task. 
 
-You don't need more than your browser to accomplish this exercise, but we recommend you use VS Code integration.
-
-VS Code will improve the experience while the app runs at GitHub Codespaces.
-
-You can also run it locally if you prefer, the GitHub Codespaces is here to help in case you don't want to install and run the app locally.
-
+Remember to focus on code quality, sound decision making, and clarity of communication.
 
 ## How to run the project on GitHub Codespaces
 - Go to Code button > Codespaces > New codespace > Select machine type (2-core should be enough).
@@ -31,5 +26,6 @@ You can also run it locally if you prefer, the GitHub Codespaces is here to help
 
 - Do not push a branch to remote since other candidates can see your branch.
 - Once you are finished:
-  1. create a private repo and share access with the users: @renatonitta, @wilsondealmeida, and @dhawt
-  2. send us a short update as mentioned in the "Engineering Take-Home (Step 4)" document
+  1. Create a private repo
+  2. Share access with the users listed on the [submission form](https://forms.gle/zjXmQbUyJ6LVJJyw7)
+  3. Message your point of contact (recruiter, hiring manager, etc)
